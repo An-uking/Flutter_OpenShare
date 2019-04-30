@@ -76,8 +76,8 @@ Flutter_OpenShare是一款集成OpenShare自动获取邀请码或参数的flutte
 
 ```
    addEventHandler(
-       onInstallMessage:(OSInstall res)=>{},
-       onWakeUpMessage: (OSWakeUp res)=>{}
+       onInstallMessage:(OSInstall res)=>{},//接收安装参数
+       onWakeUpMessage: (OSWakeUp res)=>{}//接收唤醒参数
     );
 ```
 

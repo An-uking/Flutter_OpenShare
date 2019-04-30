@@ -1,14 +1,17 @@
-# flutter_openshare
+# Flutter_OpenShare Plugin
+Flutter_OpenShare是一款集成OpenShare自动获取邀请码或参数的flutter 插件,可以帮助开发者快速集成
 
-A new flutter plugin project.
+### 推广渠道
+    1.邀请码
+    2.软文推广
+    3.广告营销
+    4.商品分销
+注:可以自定义推广渠道，上面几个只是简单举例
 
-## Getting Started
+## 测试Demo
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.io/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+### 
+```
+扫描二维码下载测试apk (测试demo暂时只有apk，iOS未上架)
+```
+<img src="https://github.com/An-uking/Flutter_IJKPlayer/blob/master/snapshot/1545422510.png" width="200" height="200">

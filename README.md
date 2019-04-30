@@ -14,7 +14,7 @@ Flutter_OpenShare是一款集成OpenShare自动获取邀请码或参数的flutte
 ```
 扫描二维码下载测试apk (测试demo暂时只有apk，iOS未上架)
 ```
-<img src="https://github.com/An-uking/Flutter_IJKPlayer/blob/master/snapshot/1545422510.png" width="200" height="200">
+<img src="https://github.com/An-uking/Flutter_OpenShare/blob/master/images/20190430140314.png?raw=true" width="200" height="200">
 
 ## APP集成
 ```

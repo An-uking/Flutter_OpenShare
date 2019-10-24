@@ -1,5 +1,5 @@
 # Flutter_OpenShare Plugin
-Flutter_OpenShare是一款集成OpenShare自动获取邀请码或参数的flutter 插件,可以帮助开发者快速集成
+Flutter_OpenShare是一款集成OpenShareSDK自动获取邀请码或参数的flutter 插件,可以帮助开发者快速集成
 
 ###   产品服务
 ####  1. 智能传参

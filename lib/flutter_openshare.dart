@@ -28,6 +28,7 @@ class FlutterOpenshare {
     _onInstallMessage = onInstallMessage;
     _onWakeUpMessage = onWakeUpMessage;
     _channel.setMethodCallHandler(_handleMethod);
+    _setup();
   }
 
   Future<void> _handleMethod(MethodCall call) async {
@@ -42,7 +43,7 @@ class FlutterOpenshare {
     }
   }
 
-  Future<void> setup() async {
+  Future<void> _setup() async {
     await _channel.invokeMethod('setup');
   }
 

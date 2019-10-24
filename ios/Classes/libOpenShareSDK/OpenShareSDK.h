@@ -66,7 +66,10 @@ typedef void (^getInstallCallback)( id  _Nullable params);
  * @ return void
  */
 +(void)reportRegister;
-
+/**
+ * 普通的获取UUID的方法
+ */
++ (NSString *)getUUID;
 @end
 
 NS_ASSUME_NONNULL_END

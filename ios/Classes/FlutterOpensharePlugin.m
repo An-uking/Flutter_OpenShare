@@ -4,7 +4,7 @@
 @end
 @implementation FlutterOpensharePlugin{
     FlutterMethodChannel* _methodChannel;
-    NSDictionary* _launchOptions;
+   NSDictionary* _launchOptions;
 }
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
     FlutterMethodChannel* channel = [FlutterMethodChannel methodChannelWithName:@"openshare.cc/Flutter_OpenShare" binaryMessenger:[registrar messenger]];
@@ -16,7 +16,7 @@
 - (instancetype)initWithChannel:(FlutterMethodChannel*)channel{
     self = [super init];
     if(self){
-        NSAssert(self, @"super init cannot be nil");
+        // NSAssert(self, @"super init cannot be nil");
 //        _messenger=messenger;
         _methodChannel=channel;
     }
@@ -24,7 +24,8 @@
 }
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"setup" isEqualToString:call.method]) {
-      [OpenShareSDK initWithDelegate:self withOptions:_launchOptions];
+      __weak typeof(self) weakSelf = self;
+      [OpenShareSDK initWithDelegate:weakSelf withOptions:_launchOptions];
       result(nil);
   } else if([@"getInstallParams" isEqualToString:call.method]){
       [[OpenShareSDK getInitializeInstance] getInstallParams:^(id  _Nullable params) {
@@ -34,6 +35,8 @@
       [[OpenShareSDK getInitializeInstance] getWakeUpParams:^(id  _Nullable params) {
           result(params);
       }];
+  }else if([@"getUUID" isEqualToString:call.method]){
+      result([OpenShareSDK getUUID]);
   }else{
     result(FlutterMethodNotImplemented);
   }
@@ -52,7 +55,8 @@
 
 #pragma mark - AppDelegate
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions{
-    _launchOptions=launchOptions;
+   _launchOptions=launchOptions;
+    
 //    _launchOptions.allKeys
     return YES;
 }

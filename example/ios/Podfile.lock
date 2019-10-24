@@ -1,0 +1,41 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_openshare (0.0.1):
+    - Flutter
+  - image_picker_saver (0.0.1):
+    - Flutter
+  - MMKV (1.0.23)
+  - mmkv_flutter (0.0.1):
+    - Flutter
+    - MMKV
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios-release`)
+  - flutter_openshare (from `.symlinks/plugins/flutter_openshare/ios`)
+  - image_picker_saver (from `.symlinks/plugins/image_picker_saver/ios`)
+  - mmkv_flutter (from `.symlinks/plugins/mmkv_flutter/ios`)
+
+SPEC REPOS:
+  trunk:
+    - MMKV
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios-release"
+  flutter_openshare:
+    :path: ".symlinks/plugins/flutter_openshare/ios"
+  image_picker_saver:
+    :path: ".symlinks/plugins/image_picker_saver/ios"
+  mmkv_flutter:
+    :path: ".symlinks/plugins/mmkv_flutter/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_openshare: cd5c3966752d6ce51b9103bbed02082658fc1e11
+  image_picker_saver: 4f28bd70e1efdca68ad88beab0f11d22cffe04f6
+  MMKV: 031ae51aedc0af1b250922f7ed8a6b6ee2f94c4c
+  mmkv_flutter: 511886651aef2c8e65402030d6517602776e8681
+
+PODFILE CHECKSUM: 6a643f61c000a9ec1fa41bd78191fc077e114b81
+
+COCOAPODS: 1.8.3

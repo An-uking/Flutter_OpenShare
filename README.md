@@ -22,7 +22,7 @@ Flutter_OpenShare是一款集成OpenShare自动获取邀请码或参数的flutte
 
 3. 快速下载，在社交平台中快速下载
 
-4. 免渠道打包,不用再为推广而渠道打包，快速区分与统一渠道来源
+4. 免渠道打包,不用再为推广而渠道打包，快速区分与统计渠道来源
 
 ### 推广渠道
     1.邀请码
@@ -43,7 +43,16 @@ Flutter_OpenShare是一款集成OpenShare自动获取邀请码或参数的flutte
 ```
 需要申请appid和appkey
 ```
+提供7天免费接入测试
+
+提供原生SDK接入服务
+
+提供SDK集成技术服务
+
+<a src="https://github.com/An-uking/Flutter_OpenShare/blob/master/images/20191024161016.jpg?raw=true">OpenShareSDK 1.0.30 IOS</a>
+
 申请appid和appkey需要联系Q:189316826
+
 自建平台联系Q:189316826
 ### ios
 

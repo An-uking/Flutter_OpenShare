@@ -1,8 +1,8 @@
 name: flutter_openshare
-description: A new flutter plugin project.
+description: OpenShareSDK flutter plugin .
 version: 0.0.1
-author:
-homepage:
+author: 189316826@qq.com
+homepage: https://github.com/An-uking/Flutter_OpenShare.git
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

@@ -40,6 +40,18 @@ Flutter_OpenShare是一款集成OpenShareSDK自动获取邀请码或参数的flu
 <img src="https://github.com/An-uking/Flutter_OpenShare/blob/master/images/20191024161016.jpg?raw=true" width="200" height="200">
 
 ## APP集成
+### 如何集成到我的flutter项目中？
+
+在项目根目录下建一个plugin目录 下载此库到该目录中去
+
+在包管理文件pubspec.yaml中添加如下：
+
+```
+dev_dependencies:
+  umengshare:
+    path: ./plugin/flutter_umengshare 
+```
+
 ```
 提供7天免费接入测试
 
@@ -50,6 +62,7 @@ Flutter_OpenShare是一款集成OpenShareSDK自动获取邀请码或参数的flu
 申请appid和appkey需要联系Q:189316826
 
 自建平台联系Q:189316826
+
 ### ios
 
 #### 1.appid配置

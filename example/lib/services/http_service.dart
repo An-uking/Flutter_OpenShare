@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_openshare_example/app_config.dart';
+
 // import 'package:device_info/device_info.dart';
 import 'package:flutter_openshare_example/services/http_response.dart';
+
 // import 'package:mmkv_flutter/mmkv_flutter.dart';
 // import 'package:meiying/utils/app_config.dart';
 
@@ -11,24 +14,31 @@ class HttpService {
   //SharedPreferences prefs;
   // MmkvFlutter mmkv;
   List<String> _systemInfo;
+
   //Map<String, dynamic> _headers;
   Dio _dio;
   BaseOptions options;
+
   //bool _headerFlag=false;
   //bool _tokenFlag=false;
   //Options _baseOptions;
   HttpService() {
     this.options = new BaseOptions(
       baseUrl: AppConfig.apiBaseUrl,
-      connectTimeout: 5000,
-      receiveTimeout: 3000,
+//      connectTimeout: 5000,
+//      receiveTimeout: 3000,
       // contentType: ContentType.parse("application/x-www-form-urlencoded"),
       //data: HttpServiceResponse
     );
     _dio = new Dio(this.options);
+    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+        (client) {
+      client.badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+    };
     _dio.interceptors.add(InterceptorsWrapper(onError: (DioError err) async {
       //_dio.interceptor.response.lock();
-      // print(err.message);
+      // print(err);
       var res = AppConfig.httpServiceError[err.type.index];
       //_dio.interceptor.response.unlock();
       return new HttpServiceResponse(
@@ -43,17 +53,17 @@ class HttpService {
           return new HttpServiceResponse(
               msg: res["msg"], data: null, ret: res["ret"]);
         }
-      }  catch (err) {
+      } catch (err) {
         var res = AppConfig.httpServiceError[2];
         return new HttpServiceResponse(
             msg: res["msg"], data: null, ret: res["ret"]);
       }
     }));
-
   }
+
   Future<Response<T>> get<T>(
     String path, {
-    Map<String,dynamic> data,
+    Map<String, dynamic> data,
     CancelToken cancelToken,
     Options options,
   }) async {
@@ -88,7 +98,6 @@ class HttpService {
   }
 
   Future<Options> _getOptions() async {
-
     var _baseOptions = new Options();
     _baseOptions.headers["appId"] = AppConfig.appId;
 

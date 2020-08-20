@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> with AfterLayoutMixin<HomePage> {
   void initState() {
     super.initState();
     _bloc = new HomePageBloc();
-    _bloc.responseStream.listen(responseCallback);
+    _bloc.resultResponse.stream.listen(responseCallback);
   }
 
   @override

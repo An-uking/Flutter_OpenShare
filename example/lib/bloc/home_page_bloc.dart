@@ -1,31 +1,41 @@
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_openshare_example/auto_invitecode.dart';
 import 'package:flutter_openshare_example/bloc/base_provider_bloc.dart';
 import 'package:flutter_openshare_example/models/user_model.dart';
 import 'package:flutter_openshare_example/services/http_response.dart';
 import 'package:flutter_openshare/flutter_openshare.dart';
-import 'package:mmkv_flutter/mmkv_flutter.dart';
+import 'package:http/io_client.dart';
+import 'package:flutter_mmkv/flutter_mmkv.dart';
 import 'package:rxdart/rxdart.dart';
 import 'dart:convert';
+import 'package:http/http.dart' as httpRequest;
 
 class HomePageBloc extends BlocBase {
   final resultResponse = new BehaviorSubject<HttpServiceResponse>();
-  Observable<HttpServiceResponse> get responseStream => resultResponse.stream;
+
+//  BehaviorSubject<HttpServiceResponse> get responseStream => resultResponse.stream;
   // final userSubject = new BehaviorSubject<User>();
   final combSubject = new BehaviorSubject<CombObj>();
+
   // final bindFlagSubject = new BehaviorSubject<bool>();
   final inviteUserSubject = new BehaviorSubject<String>();
   final wakeupSubject = new BehaviorSubject<String>();
   final FlutterOpenshare _openshare = new FlutterOpenshare();
+
+//  final _dio=new Dio();
   final FocusNode nameFocusNode = new FocusNode();
   TextEditingController controller = new TextEditingController();
-  MmkvFlutter _mmkv;
+  FlutterMMKV _mmkv;
   String _name;
   bool _nameFlag;
   String _uuid;
   String _inviteUser = "";
   User user;
   CombObj _combObj;
+
   // bool bing
 
   HomePageBloc() {
@@ -44,9 +54,8 @@ class HomePageBloc extends BlocBase {
   }
 
   void init() async {
-    _mmkv = await MmkvFlutter.getInstance();
-    _openshare.addEventHandler(
-        onInstallMessage: _onInstall, onWakeUpMessage: _onWakeUp);
+    _mmkv = await FlutterMMKV.getInstance();
+    _openshare.addEventHandler( onInstallMessage: _onInstall, onWakeUpMessage: _onWakeUp);
     // _openshare.setup();
 
     var userStr = await _mmkv.getString("OS_USER");
@@ -80,9 +89,20 @@ class HomePageBloc extends BlocBase {
     wakeupSubject.add(res.ret == 0 ? res.data.val : res.msg);
   }
 
+  bool _certificateCheck(X509Certificate cert, String host, int port) =>
+      host == 'service.openshare.cc';
+
+  httpRequest.Client _httpClient() {
+    var ioClient = new HttpClient()..badCertificateCallback = _certificateCheck;
+
+    return new IOClient(ioClient);
+  }
+
   Future<Null> load() async {
     _uuid = await _openshare.getUUID();
+//    var res = await _httpClient().get("https://service.openshare.cc/api/test/load?uuid=" + _uuid);
     var res = await http.get("/api/test/load?uuid=" + _uuid);
+//    print(res.body);
     HttpServiceResponse result = res.data;
     if (result.ret == 0) {
       user = User.fromJson(result.data);

@@ -3,21 +3,15 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-// import 'package:flutter_openshare_example/bloc/home_page_bloc.dart';
 import 'package:flutter_openshare_example/models/user_model.dart';
 import 'package:flutter_openshare_example/widgets/function.dart';
 import 'package:flutter_openshare_example/widgets/common_dialogs.dart';
 import 'package:flutter_openshare_example/widgets/coupon_box.dart';
-// import 'package:meiying/widgets/common/curve_painter.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-// import 'package:meiying/widgets/common/my_icon_icons.dart';
-// import 'package:meiying/widgets/pulltorefresh/pull_to_refresh.dart';
-// import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:image_picker_saver/image_picker_saver.dart';
 
 class InviteFriendPage extends StatefulWidget {
   final User user;
-  // final String hashURL;
   InviteFriendPage({this.user});
   @override
   _InviteFriendPageState createState() => _InviteFriendPageState();
@@ -120,15 +114,13 @@ class _InviteFriendPageState extends State<InviteFriendPage> {
                     color: Color(0xFFFFFFFF),
                     padding: EdgeInsets.all(5),
                     child: QrImage(
-                    version: 10,
-                    data: "https://apptest.openshare.cc/index.html?sp=${widget.user.hashURL}",
-                    // gapless: false,
-                    size: size.width - 120,
-                    foregroundColor: Colors.black,
-                    onError: (ex) {
-                      print("${ex}");
-                    },
-                  ),
+                      version: 10,
+                      data:
+                          "http://web.888899909.com/index.html?sp=${widget.user.hashURL}",
+                      // gapless: false,
+                      size: size.width - 120,
+                      foregroundColor: Colors.black,
+                    ),
                   ),
                 ],
               ),
@@ -137,15 +129,20 @@ class _InviteFriendPageState extends State<InviteFriendPage> {
               child: Padding(
                 padding: EdgeInsets.only(top: 30),
                 child: Column(
-                children: <Widget>[
-                  Text("自动获取邀请码测试",style: TextStyle(color: Colors.white,fontSize: 16),),
-                  SizedBox(height: 20,),
-                  Text(
-                "成功注册领取50元优惠券",
-                style: TextStyle(fontSize: 25,color: Colors.white),
-              )
-                ],
-              ),
+                  children: <Widget>[
+                    Text(
+                      "自动获取邀请码测试",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "成功注册领取50元优惠券",
+                      style: TextStyle(fontSize: 25, color: Colors.white),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

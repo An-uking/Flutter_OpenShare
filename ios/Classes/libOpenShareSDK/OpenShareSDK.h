@@ -6,7 +6,7 @@
 //  Copyright © 2019 uking. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import<Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 typedef void (^getInstallCallback)( id  _Nullable params);

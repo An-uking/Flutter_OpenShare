@@ -6,9 +6,9 @@
     "configurations": [
         {
             "name": "Flutter",
+            "program": "example/lib/main.dart",
             "request": "launch",
-            "type": "dart",
-            "program": "example/lib/main.dart"
+            "type": "dart"
         }
     ]
 }
